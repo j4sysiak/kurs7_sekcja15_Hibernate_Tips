@@ -16,7 +16,9 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.Where;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -28,8 +30,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 		}
 		)
 
-
 @Cacheable
+@SQLDelete(sql="update course set is_deleted=true where id=?")
+@Where(clause="is_deleted = false")
 public class Course {
 
 	@Id
@@ -55,6 +58,8 @@ public class Course {
 
 	@CreationTimestamp
 	private LocalDateTime createdDate;
+	
+	private boolean isDeleted;
 
 	protected Course() {
 	}

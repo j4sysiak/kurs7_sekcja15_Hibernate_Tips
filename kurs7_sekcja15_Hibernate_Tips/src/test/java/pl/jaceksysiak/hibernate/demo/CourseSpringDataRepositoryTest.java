@@ -86,4 +86,6 @@ public class CourseSpringDataRepositoryTest {
 	public void findUsingStudentsName() {
 		logger.info("findUsingStudentsName -> {} ", repository.findByName("Ranga"));
 	}
+	
+	
 }
