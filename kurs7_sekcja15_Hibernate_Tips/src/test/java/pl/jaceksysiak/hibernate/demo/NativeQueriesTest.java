@@ -29,23 +29,23 @@ public class NativeQueriesTest {
  
 	
 	@Test
-	public void Native_Queries_basic() {
-		Query query = em.createNativeQuery("select * from course");
+	public void native_queries_basic() {
+		Query query = em.createNativeQuery("select * from course", Course.class);
 		List resultList = query.getResultList();
 		logger.info("select * from course -> {}", resultList);
 	}
 	
 	@Test
-	public void Native_Queries_parameter() {
-		Query query = em.createNativeQuery("select * from course where id = ?");
+	public void native_queries_parameter() {
+		Query query = em.createNativeQuery("select * from course where id = ?", Course.class);
 		query.setParameter(1, 10000L);
 		List resultList = query.getResultList();
 		logger.info("select * from course where id = ? -> {}", resultList);
 	}
 	
 	@Test
-	public void Native_Queries_named_parameter() {
-		Query query = em.createNativeQuery("select * from course where id = :id");
+	public void native_queries_named_parameter() {
+		Query query = em.createNativeQuery("select * from course where id = :id", Course.class);
 		query.setParameter("id", 10000L);
 		List resultList = query.getResultList();
 		logger.info("select * from course where id = :id -> {}", resultList);
@@ -53,8 +53,8 @@ public class NativeQueriesTest {
 	
 	@Test
 	@Transactional
-	public void Native_Queries_update() {
-		Query query = em.createNativeQuery("update course set last_updated_date=sysdate()");
+	public void native_queries_update() {
+		Query query = em.createNativeQuery("update course set last_updated_date=sysdate()", Course.class);
 		int numberOfRows = query.executeUpdate();
 		logger.info("numberOfRows -> ", numberOfRows);
 	}

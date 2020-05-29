@@ -1,6 +1,8 @@
 package pl.jaceksysiak.hibernate.demo.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,7 +15,8 @@ public class Review {
 	@GeneratedValue
 	private Long id;
 
-	private String rating;
+	@Enumerated(EnumType.STRING)
+	private ReviewRating rating;
 
 	private String description;
 	
@@ -24,10 +27,13 @@ public class Review {
 	protected Review() {
 	}
 
-	public Review(String rating, String description) {
+	public Review(ReviewRating rating, String description) {
+		//super();
 		this.rating = rating;
 		this.description = description;
 	}
+
+
 
 	public Course getCourse() {
 		return course;
@@ -45,11 +51,11 @@ public class Review {
 		this.description = description;
 	}
 
-	public String getRating() {
+	public ReviewRating getRating() {
 		return rating;
 	}
 
-	public void setRating(String rating) {
+	public void setRating(ReviewRating rating) {
 		this.rating = rating;
 	}
 
@@ -59,7 +65,9 @@ public class Review {
 
 	@Override
 	public String toString() {
-		return String.format("Review[%s %s]", rating, description);
+		return "Review [id=" + id + ", rating=" + rating + ", description=" + description + ", course=" + course + "]";
 	}
+
+ 
 
 }
