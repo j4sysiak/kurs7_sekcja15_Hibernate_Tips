@@ -23,6 +23,7 @@ import pl.jaceksysiak.hibernate.demo.repository.StudentRepository;
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner {
 	
+	
 	@Autowired
 	CourseRepository courseRepository;
 	
