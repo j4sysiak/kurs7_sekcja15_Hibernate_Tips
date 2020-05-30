@@ -25,7 +25,9 @@ public class CourseRepository {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	public Course findById(Long id){
-		return em.find(Course.class, id);
+		Course course = em.find(Course.class, id);
+		logger.info("Course -> {}", course);
+		return course;
 	}
 	
 	public Course save(Course course) {		

@@ -115,8 +115,8 @@ public class Course {
 
 	@Override
 	public String toString() {
-		return "Course [id=" + id + ", name=" + name + "]";
+		//return String.format("Course[%s] Reviews[%s]", name, reviews);
+		return String.format("Course[%s]", name);
 	}
-	
 	
 }
