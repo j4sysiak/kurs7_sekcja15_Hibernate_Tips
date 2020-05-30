@@ -26,9 +26,9 @@ public class EmployeeRepositoryTest {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@Autowired
-	CourseRepository repository;
+	private CourseRepository repository;
 	
 	@Autowired
-	EntityManager em;
+	private EntityManager em;
 
 }

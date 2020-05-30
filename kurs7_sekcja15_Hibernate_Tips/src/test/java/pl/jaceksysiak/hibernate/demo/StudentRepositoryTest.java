@@ -24,10 +24,10 @@ public class StudentRepositoryTest {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
-	StudentRepository repository;
+	private StudentRepository repository;
 	
 	@Autowired
-	EntityManager em;
+	private EntityManager em;
 
 	//Session & Session Factory
 

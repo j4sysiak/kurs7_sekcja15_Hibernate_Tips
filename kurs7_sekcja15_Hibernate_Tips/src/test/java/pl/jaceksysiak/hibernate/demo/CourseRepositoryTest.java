@@ -30,7 +30,7 @@ public class CourseRepositoryTest {
 	CourseRepository repository;
 	
 	@Autowired
-	EntityManager em;
+	private EntityManager em;
 
 	@Test
 	public void myFirstTest_FindById() {

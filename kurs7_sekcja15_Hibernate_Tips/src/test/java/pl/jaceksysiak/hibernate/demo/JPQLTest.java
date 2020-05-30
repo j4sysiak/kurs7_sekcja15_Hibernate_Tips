@@ -25,7 +25,7 @@ public class JPQLTest {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
-	EntityManager em;
+	private EntityManager em;
 
 	@Test
 	public void jpql_basic() {
